@@ -4,6 +4,49 @@ A test runner in C# that supports per-test and per-class setup/teardown logic, a
 
 ---
 
+## Key design decisions:
+- 🔍 **Reflection-based discovery**: Methods are annotated with custom attributes (`[Test]`, `[Setup]`, etc.), allowing dynamic identification and invocation.
+- 🧼 **Separation of concerns**: The system is organized into multiple classes (e.g., runners, reporters, output writers) to maintain clean, testable and easy to enhance code.
+- 📂 **Structured reporting**: Output includes class-level and method-level results, with clear handling for setup/teardown methods.
+- 🧪 **Resilient execution**: Even if a setup or teardown fails, other methods still report their status to avoid halting on the first error.
+- 💾 **Flexible output**: Results can be printed to the console or written to a file.
+
+---
+
+## 🏗️ Architecture & Flow
+The TestRunner is built around four primary components that work together across three levels of scope:
+
+- Extractor: Responsible for discovering test classes and methods using reflection
+
+    Find test classes, methods, and setup/teardown methods via attributes
+    Create class information for execution
+
+
+- Runners: Handle the execution of tests and their setup/teardown routines
+
+    TestRunnerEngine: Runs individual test methods
+    ClassRunner: Coordinates class-level setup/teardown and all tests within a class
+    OverallRunner: Manages the overall execution across all test classes
+    SetupTeardownRunner: Manages the execution of setup and teardown methods
+
+
+- Results: Structured data classes that encapsulate test outcomes
+
+    TestResult: Contains information about an individual test method execution
+    ClassResult: Groups test results by class with class-level setup/teardown info
+    OverallRunner: Aggregates all class results with overall statistics
+    SetupTeardownResult: Encapsulates the outcome of setup/teardown methods
+
+
+- Reporters: Format and output test results
+
+    TestReporter: Reports results for individual tests
+    ClassReporter: Displays class-level summary and test details
+    OverallReporter: Shows the overall summary of the entire test run
+    SetupTeardownReporter: Formats setup/teardown outcomes consistently
+
+---
+
 ## 🚀 Features
 
 - ✅ Execute individual test methods dynamically via reflection  
