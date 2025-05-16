@@ -1,0 +1,33 @@
+# Build and VS files
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# Output logs and test results
+*.log
+Output/
+TestResults/
+*.trx
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# dotnet artifacts
+artifacts/
