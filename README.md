@@ -38,6 +38,7 @@ public void SetupAll() { ... }
 [ClassTeardown]
 public void TeardownAll() { ... }
 
+```
 
 ## 📦 Running Tests
     Run the tests by executing the `Program.cs` file with the following command in your terminal:
