@@ -41,7 +41,8 @@ public void TeardownAll() { ... }
 ```
 
 ## 📦 Running Tests
-    Run the tests by executing the `Program.cs` file with the following command in your terminal:
+    Run the tests by executing the `Program.cs` file with the following commands in your terminal:
+    dotnet build
     dotnet run
     Before running, make sure to modify the assembly path in the code to specify which assembly to load, for example:
     var assembly = Assembly.LoadFrom("bin/Debug/net8.0/TestRunner.dll");

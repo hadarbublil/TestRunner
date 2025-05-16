@@ -20,6 +20,13 @@ namespace TestRunner
         public FileOutputWriter(string filePath)
         {
             _filePath = filePath;
+
+            var directory = Path.GetDirectoryName(_filePath);
+            if (!string.IsNullOrEmpty(directory) && !Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
             File.WriteAllText(_filePath, string.Empty);
         }
 
