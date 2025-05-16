@@ -8,7 +8,6 @@ A test runner in C# that supports per-test and per-class setup/teardown logic, a
 - 🔍 **Reflection-based discovery**: Methods are annotated with custom attributes (`[Test]`, `[Setup]`, etc.), allowing dynamic identification and invocation.
 - 🧼 **Separation of concerns**: The system is organized into multiple classes (e.g., runners, reporters, output writers) to maintain clean, testable and easy to enhance code.
 - 📂 **Structured reporting**: Output includes class-level and method-level results, with clear handling for setup/teardown methods.
-- 🧪 **Resilient execution**: Even if a setup or teardown fails, other methods still report their status to avoid halting on the first error.
 - 💾 **Flexible output**: Results can be printed to the console or written to a file.
 
 ---
